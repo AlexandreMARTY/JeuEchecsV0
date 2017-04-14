@@ -24,7 +24,7 @@ public class Echiquier {
 	 * retourne une case en particulier
 	 */
 	public Case getCase(int col, int lig) {
-		return plateau[col-1][lig-1];
+		return plateau[col][lig];
 	}
 	
 	/**
@@ -40,8 +40,8 @@ public class Echiquier {
 	 */
 	public Echiquier() {
 		this.plateau = new Case[8][8];
-		for (int col=0; col<7; col++) {
-			for (int lig=0; lig<7; lig++) {
+		for (int col=0; col<8; col++) {
+			for (int lig=0; lig<8; lig++) {
 				plateau[col][lig] = new Case(col, lig);
 			}
 		}

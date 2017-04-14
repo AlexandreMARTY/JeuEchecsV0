@@ -64,12 +64,13 @@ public class Case {
 		if (key == 0) {
 			this.couleurCase = Couleur.NOIR;
 			//uniquement pour les tests de la fonction
-			System.out.println("la couleur de la case de coordonnées : Colonne "+(this.getCol()+1)+" Ligne "+(this.getLig()+1)+" est NOIR");
+			//System.out.println("la couleur de la case de coordonnées : Colonne "+(this.getCol()+1)+" Ligne "+(this.getLig()+1)+" est NOIR");
 		}
 		else {
 			this.couleurCase = Couleur.BLANC;
 			//uniquement pour les tests de la fonction
-			System.out.println("la couleur de la case de coordonnées : Colonne "+(this.getCol()+1)+" Ligne "+(this.getLig()+1)+" est BLANC");		}
+			//System.out.println("la couleur de la case de coordonnées : Colonne "+(this.getCol()+1)+" Ligne "+(this.getLig()+1)+" est BLANC");		}
+		}
 	}
 	
 	/**
@@ -98,9 +99,7 @@ public class Case {
 	/**
 	 * initialise le champ atteignable de la case (false dans le cas du constructeur)
 	 */
-	public
-	//protected
-	 void setAtteignable(boolean atteignable) {
+	public void setAtteignable(boolean atteignable) {
 		this.atteignable = atteignable;
 	}
 	
