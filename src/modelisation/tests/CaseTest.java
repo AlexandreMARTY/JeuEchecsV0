@@ -46,11 +46,11 @@ public class CaseTest {
 				System.out.println("Aïe, getLig() appliquée à H8 renvoie "+H8.getLig()+" au lieu de 7");
 			}
 			else {
-				if (B6.getLig() != 1) {
+				if (B6.getLig() != 5) {
 					System.out.println("Aïe, getLig() appliquée à B6 renvoie "+B6.getLig()+" au lieu de 5");
 				}
 				else {
-					if (C8.getLig() != 2){
+					if (C8.getLig() != 7){
 						System.out.println("Aïe, getLig() appliquée à C8 renvoie "+C8.getLig()+" au lieu de 7");
 					}
 					else {
@@ -61,11 +61,11 @@ public class CaseTest {
 		}
 		
 		//Test de getCouleurCase() (setCouleurCase() est testée dans la calsse Case)
-		if (H1.getCouleurCase() == Couleur.BLANC) {
+		if (H1.getCouleurCase() != Couleur.BLANC) {
 			System.out.println("Aïe, getCouleurCase() appliquée à H1 renvoie "+H1.getCouleurCase()+" au lieu de BLANC");
 		}
 		else {
-			if (H8.getCouleurCase() == Couleur.NOIR) {
+			if (H8.getCouleurCase() != Couleur.NOIR) {
 				System.out.println("Aïe, getCouleurCase() appliquée à H8 renvoie "+H8.getCouleurCase()+" au lieu de NOIR");
 			}
 			else {
@@ -83,7 +83,7 @@ public class CaseTest {
 		
 		//setAtteignable() {
 		H1.setAtteignable(true);
-		if (H1.isAtteignable() == true) {
+		if (H1.isAtteignable() != true) {
 			System.out.println("Aïe, setAtteignable() appliqué à H1 avec true initialise atteignable à "+ H1.isAtteignable()+" au lieu de true");
 		}
 		else {
