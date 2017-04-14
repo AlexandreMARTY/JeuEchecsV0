@@ -9,6 +9,9 @@ import modelisation.pieces.Piece;
  * 
  *Une case peut aussi être occupée ou vide. la @Piece occupeePar vaut null si la case est vide, une instance de pièce sinon
  *
+ *le champ atteignable n'est utilisée que dans le cas de la modélisation du rayon d'action d'une pièce 
+ *et désigne si la pièce en question peut aller sur cette case
+ *
  * @author Alexandre
  */
 
@@ -22,8 +25,11 @@ public class Case {
 	
 	private Piece occupeePar; // La variable qui indique si la case est occupée ou non 
 
+	private boolean atteignable; // Indique, dans le cas d'un déplacement, si la pièce peut aller sur cette case
 	
 /////////////////////////////////////////Getters et Setters////////////////////////////////////////////
+
+
 
 /**
  * @param aucun 
@@ -79,6 +85,20 @@ public class Case {
 		this.occupeePar = occupeePar;
 	}
 	
+	/**
+	 * renvoie true si la case est atteignable par la pièce en question
+	 */
+	public boolean isAtteignable() {
+		return atteignable;
+	}
+
+	/**
+	 * initialise le champ atteignable de la case (false dans le cas du constructeur)
+	 */
+	protected void setAtteignable(boolean atteignable) {
+		this.atteignable = atteignable;
+	}
+	
 /////////////////////////////////////////Constructeur////////////////////////////////////////////
 	
 	/**
@@ -91,6 +111,7 @@ public class Case {
 	public Case(int col, int lig) {
 		this.col = col;
 		this.lig = lig;
+		this.setAtteignable(false);
 		this.setCouleurCase();
 	}
 	
