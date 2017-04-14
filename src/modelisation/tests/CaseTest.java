@@ -8,7 +8,7 @@ public class CaseTest {
 		
 		//Création de cases test
 		Case A1 = new Case(0,0);
-		Case A8 = new Case(0,7);
+		//Case A8 = new Case(0,7);
 		Case H8 = new Case(7,7);
 		Case H1 = new Case(7,0);
 		Case B6 = new Case(1,5);
@@ -71,6 +71,23 @@ public class CaseTest {
 			else {
 				System.out.println("Ok, getCouleurCase() semble correcte");
 			}
+		}
+		
+		//test de isAtteignable() 
+		if (H1.isAtteignable() == true) {
+			System.out.println("Aïe, isAtteignable() appliquée à H1 renvoie "+H1.isAtteignable()+" au lieu de false");
+		}
+		else {
+			System.out.println("Ok, isAtteignable() semble correcte");
+		}
+		
+		//setAtteignable() {
+		H1.setAtteignable(true);
+		if (H1.isAtteignable() == true) {
+			System.out.println("Aïe, setAtteignable() appliqué à H1 avec true initialise atteignable à "+ H1.isAtteignable()+" au lieu de true");
+		}
+		else {
+			System.out.println("Ok, setAtteignable() semble correcte");
 		}
 	}
 }

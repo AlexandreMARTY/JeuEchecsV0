@@ -98,7 +98,9 @@ public class Case {
 	/**
 	 * initialise le champ atteignable de la case (false dans le cas du constructeur)
 	 */
-	protected void setAtteignable(boolean atteignable) {
+	public
+	//protected
+	 void setAtteignable(boolean atteignable) {
 		this.atteignable = atteignable;
 	}
 	
