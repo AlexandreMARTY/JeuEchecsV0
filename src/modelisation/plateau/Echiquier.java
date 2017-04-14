@@ -23,7 +23,7 @@ public class Echiquier {
 	/**
 	 * retourne une case en particulier
 	 */
-	public Case getPlateau(int col, int lig) {
+	public Case getCase(int col, int lig) {
 		return plateau[col-1][lig-1];
 	}
 	
