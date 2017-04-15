@@ -30,8 +30,8 @@ public class Echiquier {
 	/**
 	 * change l'état de la case en question (passe de non atteignable à atteignable) par une pièce
 	 */
-	public void setCaseAtteignable(Case c) {
-		c.setAtteignable(true);
+	public void setCaseAtteignable(Case c, boolean b) {
+		c.setAtteignable(b);
 	}
 	
 /////////////////////////////////////////Constructeurs////////////////////////////////////////////

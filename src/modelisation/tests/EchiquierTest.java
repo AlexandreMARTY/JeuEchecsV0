@@ -47,7 +47,7 @@ public class EchiquierTest {
 			}
 		}
 		//test de setCaseAtteignable(Case c)
-		echiquier.setCaseAtteignable(echiquier.getCase(7, 1)); //la case H1 est atteignable
+		echiquier.setCaseAtteignable(echiquier.getCase(7, 1), true); //la case H1 est atteignable
 		if (!echiquier.getCase(7, 1).isAtteignable()) {
 			System.out.println("Aïe, setCaseAtteignable(echiquier[7][1]) initialise l'attribut correspondant de la case à"+echiquier.getCase(7, 1).isAtteignable()+" au lieu de true");
 		}

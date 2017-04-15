@@ -74,12 +74,35 @@ public abstract class Piece {
 		return this.getRayonAction().getCase(c.getCol(), c.getLig()).isAtteignable();
 	}
 	
+	/**
+	 * Cette fonction met à jour l'instance de rayon d'action de la pièce considérée en prenant en compte le statut
+	 * de son roi (echec ou pas) qu'entraineraît son déplacement 
+	 * @param plateauJeu
+	 * @param roi
+	 */
+	public void nouveauRayonAction(Echiquier plateauJeu, Roi roi) {
+		//TODO
+	}
+	
 /////////////////////////////////////////Fonctions Abstraites////////////////////////////////////////////
 	/**
 	 * 
 	 * @param plateauJeu l'échiquier pris en argument est le plateau de jeu. En fonction du plateau de jeu, chaque pièce va appeler 
-	 * cette fonction pour déterminer son nouveau rayon d'action. 
+	 * cette fonction pour déterminer son nouveau rayon d'action. SI LE ROI POUVAIT ETRE LAISSE EN ECHEC
 	 * @return void mais initialise un nouvel @Echiquier en instance de rayonAction
 	 */
-	public abstract void MaJRayonAction(Echiquier plateauJeu);
+	public abstract Echiquier premierRayonAction(Echiquier plateauJeu);
+	
+/////////////////////////////////////////Constructeurs////////////////////////////////////////////
+	/**
+	 * Le constructeur d'une pièce
+	 * @param nomPiece
+	 * @param couleurPiece
+	 * @param emplacement
+	 */
+	public Piece(String nomPiece, Couleur couleurPiece, Case emplacement) {
+		this.nomPiece = nomPiece;
+		this.couleurPiece = couleurPiece;
+		this.emplacement = emplacement;
+	}
 }
