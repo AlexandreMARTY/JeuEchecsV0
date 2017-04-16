@@ -13,6 +13,7 @@ public class CaseTest {
 		Case H1 = new Case(7,0);
 		Case B6 = new Case(1,5);
 		Case C8 = new Case(2,7);
+		//Case B3caval = new Case(1,2,)
 		
 		//test de getCol() 
 		if (A1.getCol() != 0) {
@@ -60,7 +61,7 @@ public class CaseTest {
 			}
 		}
 		
-		//Test de getCouleurCase() (setCouleurCase() est testée dans la calsse Case)
+		//Test de getCouleurCase() (setCouleurCase() est testée dans la classe Case)
 		if (H1.getCouleurCase() != Couleur.BLANC) {
 			System.out.println("Aïe, getCouleurCase() appliquée à H1 renvoie "+H1.getCouleurCase()+" au lieu de BLANC");
 		}

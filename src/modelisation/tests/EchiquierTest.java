@@ -46,13 +46,40 @@ public class EchiquierTest {
 				
 			}
 		}
+		
+		//test de setCase(Case c)
+		echiquier.getCase(0, 0).setAtteignable(true);
+		Case newA1 = new Case(0,0);
+		echiquier.setCase(newA1);
+		if (echiquier.getCase(0, 0).isAtteignable()) {
+			System.out.println("Aïe, setCase(newA1) devrait initialiser A1 comme une autre case non atteignable");
+		}
+		else {
+			System.out.println("OK, setCase(Case c) semble correct");
+		}
+		
 		//test de setCaseAtteignable(Case c)
-		echiquier.setCaseAtteignable(echiquier.getCase(7, 1), true); //la case H1 est atteignable
+		echiquier.setCaseAtteignable(echiquier.getCase(7, 1), true); //la case H2 est atteignable
 		if (!echiquier.getCase(7, 1).isAtteignable()) {
 			System.out.println("Aïe, setCaseAtteignable(echiquier[7][1]) initialise l'attribut correspondant de la case à"+echiquier.getCase(7, 1).isAtteignable()+" au lieu de true");
 		}
 		else {
 			System.out.println("Ok, setCaseAtteignable(Case c) semble correcte");
+		}
+		
+		//test de copyEchiquier
+		Echiquier copy = Echiquier.copyEchiquier(echiquier);
+		boolean verif = true;
+		for (int col = 0; col<8; col++) {
+			for (int lig = 0; lig<8; lig++) {
+				if (!copy.getCase(col, lig).equals(echiquier.getCase(col, lig))) {
+					System.out.println("Aïe, copyEchiquier copie mal la case de colonne "+col+" et de ligne "+lig);
+					verif = false;
+				}
+			}
+		}
+		if (verif == true) {
+			System.out.println("Ok, copyEchiquier(Echiquier e) semble correcte");
 		}
 	}
 }

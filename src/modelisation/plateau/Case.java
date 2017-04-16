@@ -33,7 +33,7 @@ public class Case {
 
 /**
  * @param aucun 
- * @return la colonne de la case
+ * @return la colonne de la case @tested
  */
 	public int getCol() {
 		return col;
@@ -41,7 +41,7 @@ public class Case {
 	
 	/**
 	 * @param aucun 
-	 * @return la ligne de la case
+	 * @return la ligne de la case @tested
 	 */
 	public int getLig() {
 		return lig;
@@ -49,7 +49,7 @@ public class Case {
 
 	/**
 	 * @param aucun 
-	 * @return la couleur de la case
+	 * @return la couleur de la case @tested
 	 */
 	public Couleur getCouleurCase() {
 		return couleurCase;
@@ -57,7 +57,7 @@ public class Case {
 	
 	/**
 	 * La couleur d'une case ne dépend que de ses coordonnées. ce setter appelé par le constructeur donne une couleur à la case
-	 * @return void mais initialise couleurCase à NOIR ou BLANC
+	 * @return void mais initialise couleurCase à NOIR ou BLANC @tested
 	 */
 	private void setCouleurCase() {
 		int key = (this.getCol()+this.getLig())%2;
@@ -75,7 +75,7 @@ public class Case {
 	
 	/**
 	 * @param aucun 
-	 * @return la piece qui occupe la case, null si la case est vide
+	 * @return la piece qui occupe la case, null si la case est vide @tested
 	 */
 	public Piece OccupeePar() {
 		return occupeePar;
@@ -83,46 +83,72 @@ public class Case {
 
 	/**
 	 * @param Piece
-	 * @return void mais initialise le champ de l'attribut à la pièce
+	 * @return void mais initialise le champ de l'attribut à la pièce @tested
 	 */
 	public void setOccupeePar(Piece occupeePar) {
 		this.occupeePar = occupeePar;
 	}
 	
 	/**
-	 * renvoie true si la case est atteignable par la pièce en question
+	 * renvoie true si la case est atteignable par la pièce en question @tested
 	 */
 	public boolean isAtteignable() {
 		return atteignable;
 	}
 
 	/**
-	 * initialise le champ atteignable de la case (false dans le cas du constructeur)
+	 * initialise le champ atteignable de la case (false dans le cas du constructeur) @tested
 	 */
 	public void setAtteignable(boolean atteignable) {
 		this.atteignable = atteignable;
 	}
 	
+	/**
+	 * méthode equals, utile pour la copie @tested (generée)
+	 */
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Case other = (Case) obj;
+		if (atteignable != other.atteignable)
+			return false;
+		if (col != other.col)
+			return false;
+		if (lig != other.lig)
+			return false;
+		if (occupeePar == null) {
+			if (other.occupeePar != null)
+				return false;
+		} else if (!occupeePar.equals(other.occupeePar))
+			return false;
+		return true;
+	}
+	
 /////////////////////////////////////////Constructeur////////////////////////////////////////////
 	/**
-	 * Un constructeur qui permet aussi de 
+	 * Un constructeur qui permet aussi de construire mais cette fois ci en se placant sur les attributs d'une aute case @tested
 	 * @param col
 	 * @param lig
 	 * @param occupeePar
 	 */
-	public Case (int col, int lig, Piece occupeePar) {
+	public Case (int col, int lig, Piece occupeePar, boolean atteignable) {
 		this.col = col;
 		this.lig = lig;
 		this.occupeePar = occupeePar;
-		this.setAtteignable(false);
+		this.atteignable = atteignable;
 		this.setCouleurCase();
 	}
+
 	/**
 	 * construit une case (toutes les cases crées seront crées sans pièces. Seulement après les pièces seront crées et mises 
 	 * sur la case.
 	 * @param col
 	 * @param lig
-	 * @param occupeePar
+	 * @param occupeePar @tested
 	 */
 	public Case(int col, int lig) {
 		this.col = col;
@@ -133,7 +159,7 @@ public class Case {
 	
 	/**
 	 * le constructeur réduit qui crée la case A1 (col = 0; lig = 0)
-	 * En aucun cas le programme vérifie si ce sont bien des cases d'échec pour le moment !
+	 * En aucun cas le programme vérifie si ce sont bien des cases d'échec pour le moment ! @tested
 	 */
 	public Case() {
 		this(1,1);

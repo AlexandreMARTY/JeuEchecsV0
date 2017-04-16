@@ -14,29 +14,31 @@ public class Echiquier {
 	
 /////////////////////////////////////////Getters et Setters////////////////////////////////////////////
 	/**
-	 * retourne le plateau d'echec en entier
+	 * retourne le plateau d'echec en entier @tested
 	 */
 	public Case[][] getPlateau() {
 		return plateau;
 	}
 	
 	/**
-	 * retourne une case en particulier
+	 * retourne une case en particulier @tested
 	 */
 	public Case getCase(int col, int lig) {
 		return plateau[col][lig];
 	}
 	
 	/**
-	 * Cette méthode uniquement utilisée dans la fonction de copie permet de copier une case dans l'emplacement réservé 
+	 * Cette méthode uniquement utilisée dans la fonction de copie permet de copier une case dans l'emplacement réservé @tested
 	 * @param c
 	 */
-	private void setCase(Case c) {
-		plateau[c.getLig()][c.getCol()] = c;
+	public
+	//private
+	void setCase(Case c) {
+		plateau[c.getCol()][c.getLig()] = c;
 	}
 	
 	/**
-	 * change l'état de la case en question (passe de non atteignable à atteignable) par une pièce
+	 * change l'état de la case en question (passe de non atteignable à atteignable) par une pièce @tested
 	 */
 	public void setCaseAtteignable(Case c, boolean b) {
 		c.setAtteignable(b);
@@ -44,7 +46,7 @@ public class Echiquier {
 	
 /////////////////////////////////////////Constructeurs////////////////////////////////////////////
 	/**
-	 * Ce constructeur constrit un échiquier en faisant appel 64 fois au constructeur
+	 * Ce constructeur constrit un échiquier en faisant appel 64 fois au constructeur @tested
 	 */
 	public Echiquier() {
 		this.plateau = new Case[8][8];
@@ -57,7 +59,7 @@ public class Echiquier {
 	
 	/**
 	 * Pour l'implémentation de la méthode nouveau rayon action, on a besoin de déterminer une copie du plateau de jeu, d'où cette 
-	 * méthode. Elle effectue la copie de l'échiquier donné en argument.
+	 * méthode. Elle effectue la copie de l'échiquier donné en argument. @tested
 	 * @param e
 	 * @return un échiquier copié 
 	 */
@@ -65,7 +67,8 @@ public class Echiquier {
 		Echiquier CopyEchiquier = new Echiquier();
 		for (int col=0; col<8; col++) {
 			for (int lig=0; lig<8; lig++) {
-				CopyEchiquier.setCase(e.getCase(col, lig));
+				CopyEchiquier.setCase(new Case(e.getCase(col, lig).getCol(), e.getCase(col, lig).getLig(), 
+						e.getCase(col, lig).OccupeePar(),e.getCase(col, lig).isAtteignable()));//, e.getCase(col, lig).OccupeePar()));
 			}
 		}
 		return  CopyEchiquier;
