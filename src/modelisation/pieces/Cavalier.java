@@ -14,7 +14,7 @@ public class Cavalier extends Piece {
 	// pas d'attriuts particuliers en plus
 	
 /////////////////////////////////////////Fonctions////////////////////////////////////////////
-	public Echiquier premierRayonAction(Echiquier plateauJeu) {
+	protected Echiquier premierRayonAction(Echiquier plateauJeu) {
 		// TODO
 		return null;
 	}

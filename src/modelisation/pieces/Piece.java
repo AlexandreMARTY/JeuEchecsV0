@@ -18,7 +18,7 @@ public abstract class Piece {
 	private String nomPiece; //Le nom de la pièce
 	private Couleur couleurPiece;//La couleur de la pièce 
 	
-	private Case emplacement; //La case de départ de la pièce
+	private Case emplacement; //La case de départ de la pièce. Si null ça veut dire que la pièce n'existe plus
 	
 	private Echiquier rayonAction;
 	//L'échiquier repésentant la rayon d'action de la pièce. Pour chaque case atteignable, le boolean atteignable de cette case sur 
@@ -53,8 +53,16 @@ public abstract class Piece {
 	 * Initialise la case d'emplacement de la pièce (à la suite d'un déplacement)
 	 * @param emplacement
 	 */
-	public void setEmplacement(Case emplacement) {
-		this.emplacement = emplacement;
+	public void setEmplacement(Case arrivee) {
+		if (arrivee.OccupeePar() == null) {
+			this.emplacement = arrivee;
+			arrivee.setOccupeePar(this);
+		}
+		else {
+			this.emplacement = arrivee;
+			arrivee.OccupeePar().setEmplacement(null);
+			arrivee.setOccupeePar(this);
+		}	
 	}
 
 	/**
@@ -81,17 +89,46 @@ public abstract class Piece {
 	 * @param roi
 	 */
 	public void nouveauRayonAction(Echiquier plateauJeu, Roi roi) {
-		//TODO
+		Echiquier premierRayonAction = premierRayonAction(plateauJeu);
+		Echiquier nouveauRayonAction = Echiquier.copyEchiquier(premierRayonAction);
+		for (int col = 0; col<8; col++) {
+			for (int lig = 0; lig<8; lig++) {
+				Case aEtudier = premierRayonAction.getCase(col, lig);
+				Case aEtudierPlateau = plateauJeu.getCase(col, lig);
+				if (aEtudier.isAtteignable()) {
+					Case memoirecasedepart = this.getEmplacement();
+					this.setEmplacement(aEtudierPlateau);
+					for (int col1 = 0; col1<8; col1++) {
+						for (int lig1 = 0; lig1<8; lig1++) {
+							if (plateauJeu.getCase(col1, lig1).OccupeePar() != null && 
+									plateauJeu.getCase(col1, lig1).OccupeePar().getCouleurPiece() != this.getCouleurPiece()) {
+								Echiquier premierRayonActionAdv = plateauJeu.getCase(col1, lig1).OccupeePar().premierRayonAction(plateauJeu);
+								for (int col2 = 0; col2<8; col2++) {
+									for (int lig2 = 0; lig2<8; lig2++) { 
+										if ((premierRayonActionAdv.getCase(col2, lig2).isAtteignable())
+												&& (plateauJeu.getCase(col2, lig2).OccupeePar().equals(roi))) {
+											nouveauRayonAction.getCase(col2, lig2).setAtteignable(false);
+										}
+									}
+								}
+							}
+						}
+					}
+					this.setEmplacement(memoirecasedepart);
+				}
+			}		
+		}
+		this.rayonAction = nouveauRayonAction;
 	}
 	
 /////////////////////////////////////////Fonctions Abstraites////////////////////////////////////////////
 	/**
 	 * 
 	 * @param plateauJeu l'échiquier pris en argument est le plateau de jeu. En fonction du plateau de jeu, chaque pièce va appeler 
-	 * cette fonction pour déterminer son nouveau rayon d'action. SI LE ROI POUVAIT ETRE LAISSE EN ECHEC
+	 * cette fonction pour déterminer son nouveau premier rayon d'action SI LE ROI POUVAIT ETRE LAISSE EN ECHEC
 	 * @return void mais initialise un nouvel @Echiquier en instance de rayonAction
 	 */
-	public abstract Echiquier premierRayonAction(Echiquier plateauJeu);
+	protected abstract Echiquier premierRayonAction(Echiquier plateauJeu);
 	
 /////////////////////////////////////////Constructeurs////////////////////////////////////////////
 	/**

@@ -28,6 +28,14 @@ public class Echiquier {
 	}
 	
 	/**
+	 * Cette méthode uniquement utilisée dans la fonction de copie permet de copier une case dans l'emplacement réservé 
+	 * @param c
+	 */
+	private void setCase(Case c) {
+		plateau[c.getLig()][c.getCol()] = c;
+	}
+	
+	/**
 	 * change l'état de la case en question (passe de non atteignable à atteignable) par une pièce
 	 */
 	public void setCaseAtteignable(Case c, boolean b) {
@@ -45,5 +53,21 @@ public class Echiquier {
 				plateau[col][lig] = new Case(col, lig);
 			}
 		}
+	}
+	
+	/**
+	 * Pour l'implémentation de la méthode nouveau rayon action, on a besoin de déterminer une copie du plateau de jeu, d'où cette 
+	 * méthode. Elle effectue la copie de l'échiquier donné en argument.
+	 * @param e
+	 * @return un échiquier copié 
+	 */
+	public static Echiquier copyEchiquier(Echiquier e) {
+		Echiquier CopyEchiquier = new Echiquier();
+		for (int col=0; col<8; col++) {
+			for (int lig=0; lig<8; lig++) {
+				CopyEchiquier.setCase(e.getCase(col, lig));
+			}
+		}
+		return  CopyEchiquier;
 	}
 }

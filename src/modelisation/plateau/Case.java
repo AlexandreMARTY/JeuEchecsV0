@@ -104,7 +104,19 @@ public class Case {
 	}
 	
 /////////////////////////////////////////Constructeur////////////////////////////////////////////
-	
+	/**
+	 * Un constructeur qui permet aussi de 
+	 * @param col
+	 * @param lig
+	 * @param occupeePar
+	 */
+	public Case (int col, int lig, Piece occupeePar) {
+		this.col = col;
+		this.lig = lig;
+		this.occupeePar = occupeePar;
+		this.setAtteignable(false);
+		this.setCouleurCase();
+	}
 	/**
 	 * construit une case (toutes les cases crées seront crées sans pièces. Seulement après les pièces seront crées et mises 
 	 * sur la case.
