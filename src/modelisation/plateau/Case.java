@@ -145,7 +145,7 @@ public class Case {
 
 	/**
 	 * construit une case (toutes les cases crées seront crées sans pièces. Seulement après les pièces seront crées et mises 
-	 * sur la case.
+	 * sur la case. @tested
 	 * @param col
 	 * @param lig
 	 * @param occupeePar @tested

@@ -112,29 +112,31 @@ public abstract class Piece {
 		Echiquier premierRayonAction = premierRayonAction(plateauJeu);
 		Echiquier nouveauRayonAction = Echiquier.copyEchiquier(premierRayonAction);
 		for (int col = 0; col<8; col++) {
-			for (int lig = 0; lig<8; lig++) {
+			for (int lig = 0; lig<8; lig++) { // On parcours le premier rayon d'action
 				Case aEtudier = premierRayonAction.getCase(col, lig);
 				Case aEtudierPlateau = plateauJeu.getCase(col, lig);
 				if (aEtudier.isAtteignable()) {
 					Case memoirecasedepart = this.getEmplacement();
-					this.setEmplacement(aEtudierPlateau);
+					this.setEmplacement(aEtudierPlateau); // on déplace la pièce concernée
 					for (int col1 = 0; col1<8; col1++) {
-						for (int lig1 = 0; lig1<8; lig1++) {
+						for (int lig1 = 0; lig1<8; lig1++) { // Et ensuite pour chaque pièce ennemie du plateau
 							if (plateauJeu.getCase(col1, lig1).OccupeePar() != null && 
 									plateauJeu.getCase(col1, lig1).OccupeePar().getCouleurPiece() != this.getCouleurPiece()) {
-								Echiquier premierRayonActionAdv = plateauJeu.getCase(col1, lig1).OccupeePar().premierRayonAction(plateauJeu);
+								Echiquier premierRayonActionAdv = plateauJeu.getCase(col1, lig1).
+										OccupeePar().premierRayonAction(plateauJeu); //On calcule son rayon d'action
 								for (int col2 = 0; col2<8; col2++) {
-									for (int lig2 = 0; lig2<8; lig2++) { 
+									for (int lig2 = 0; lig2<8; lig2++) { //Pour chaque case du rayon d'action calculé
 										if ((premierRayonActionAdv.getCase(col2, lig2).isAtteignable())
-												&& (plateauJeu.getCase(col2, lig2).OccupeePar().equals(roi))) {
-											nouveauRayonAction.getCase(col2, lig2).setAtteignable(false);
+												&& (plateauJeu.getCase(col2, lig2).OccupeePar().equals(roi))) { //Si elle est atteignable
+																												//et que notre roi est dedans
+											nouveauRayonAction.getCase(col2, lig2).setAtteignable(false); //on elimine a case comme atteignable
 										}
 									}
 								}
 							}
 						}
 					}
-					this.setEmplacement(memoirecasedepart);
+					this.setEmplacement(memoirecasedepart); //On remet tout à sa place 
 				}
 			}		
 		}
