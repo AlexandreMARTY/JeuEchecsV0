@@ -1,4 +1,4 @@
-package modelisation.tests;
+package modelisation.tests.plateau;
 
 import modelisation.plateau.*;
 

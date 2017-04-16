@@ -1,4 +1,4 @@
-package modelisation.tests;
+package modelisation.tests.pieces;
 
 import modelisation.pieces.Fou;
 import modelisation.plateau.Case;
