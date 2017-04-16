@@ -27,7 +27,7 @@ public abstract class Piece {
 /////////////////////////////////////////Fonctions Concrètes////////////////////////////////////////////
 	/**
 	 * getter du nom de la pièce 
-	 * @return le nom de la pièce
+	 * @return le nom de la pièce @tested 
 	 */
 	public String getNomPiece() {
 		return nomPiece;
@@ -35,7 +35,7 @@ public abstract class Piece {
 
 	/**
 	 * getter de la couleur de la pièce
-	 * @return la couleur de la pièce
+	 * @return la couleur de la pièce @tested
 	 */
 	public Couleur getCouleurPiece() {
 		return couleurPiece;
@@ -43,31 +43,44 @@ public abstract class Piece {
 	
 	/**
 	 * retourne la case d'emplacement de la pièce
-	 * @return la case d'emplacement de la pièce
+	 * @return la case d'emplacement de la pièce @tested
 	 */
 	public Case getEmplacement() {
 		return emplacement;
 	}
 
 	/**
-	 * Initialise la case d'emplacement de la pièce (à la suite d'un déplacement)
+	 * Initialise la case d'emplacement de la pièce (à la suite d'un déplacement) @tested
 	 * @param emplacement
 	 */
 	public void setEmplacement(Case arrivee) {
 		if (arrivee.OccupeePar() == null) {
+			this.emplacement.setOccupeePar(null);
 			this.emplacement = arrivee;
 			arrivee.setOccupeePar(this);
 		}
 		else {
+			this.emplacement.setOccupeePar(null);
 			this.emplacement = arrivee;
-			arrivee.OccupeePar().setEmplacement(null);
+			arrivee.OccupeePar().erase();
 			arrivee.setOccupeePar(this);
 		}	
 	}
 
 	/**
+	 * Cette fonction elimine juste la pièce du jeu. Elle est encore conservée dan la mémoire de l'ordinateur mais elle n'est plus
+	 * à considérer @tested
+	 */
+	public void erase() {
+		this.couleurPiece = null;
+		this.emplacement = null;
+		this.rayonAction = null;
+		this.nomPiece = "erase";
+	}
+
+	/**
 	 * Retourne l'échiquier correspondant au rayon d'action de la pièce.
-	 * @return l'échiquier correspondant au rayon d'action de la pièce 
+	 * @return l'échiquier correspondant au rayon d'action de la pièce @tested
 	 */
 	public Echiquier getRayonAction() {
 		return rayonAction;
@@ -78,8 +91,15 @@ public abstract class Piece {
 	 * @param Case c à vérifier si elle est dans le rayon d'action de la pièce
 	 * @return true si la case est dans le rayon d'action, sinon false
 	 */
-	public boolean isInRayonAction(Case c) {
+	public boolean CaseInRayonAction(Case c) {
 		return this.getRayonAction().getCase(c.getCol(), c.getLig()).isAtteignable();
+	}
+	
+	/**
+	 * Uniquement pour les test de isInRayonAction, voici une fonction pour initier un rayon d'action à une pièce
+	 */
+	public void setRayonAction(Echiquier e) {
+		this.rayonAction = e;
 	}
 	
 	/**
@@ -132,12 +152,12 @@ public abstract class Piece {
 	
 /////////////////////////////////////////Constructeurs////////////////////////////////////////////
 	/**
-	 * Le constructeur d'une pièce
+	 * Le constructeur d'une pièce @tested
 	 * @param nomPiece
 	 * @param couleurPiece
 	 * @param emplacement
 	 */
-	public Piece(String nomPiece, Couleur couleurPiece, Case emplacement) {
+	public Piece(String nomPiece, Couleur couleurPiece, Case emplacement) { 
 		this.nomPiece = nomPiece;
 		this.couleurPiece = couleurPiece;
 		this.emplacement = emplacement;
