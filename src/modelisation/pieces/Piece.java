@@ -89,14 +89,14 @@ public abstract class Piece {
 	/**
 	 * Cette prochaine fonction est censé dire si, pour une case donnée, elle est ou non dans le rayon d'action de la pièce 
 	 * @param Case c à vérifier si elle est dans le rayon d'action de la pièce
-	 * @return true si la case est dans le rayon d'action, sinon false
+	 * @return true si la case est dans le rayon d'action, sinon false @tested
 	 */
 	public boolean CaseInRayonAction(Case c) {
 		return this.getRayonAction().getCase(c.getCol(), c.getLig()).isAtteignable();
 	}
 	
 	/**
-	 * Uniquement pour les test de isInRayonAction, voici une fonction pour initier un rayon d'action à une pièce
+	 * Uniquement pour les tests de isInRayonAction, voici une fonction pour initier un rayon d'action à une pièce @tested
 	 */
 	public void setRayonAction(Echiquier e) {
 		this.rayonAction = e;
