@@ -90,5 +90,26 @@ public class CaseTest {
 		else {
 			System.out.println("Ok, setAtteignable() semble correcte");
 		}
+		
+		//Test de isValid(col, lig)
+		boolean pp89 = Case.isValid(8,7);
+		boolean np10 = Case.isValid(-1,0);
+		boolean pp00 = Case.isValid(0,0);
+		if (pp89) {
+			System.out.println("Aïe, isValid sur 8 et 7 renvoie true au lieu de false");
+		}
+		else {
+			if (np10) {
+				System.out.println("Aïe, isValid sur -1 et 0 renvoie true au lieu de false");
+			}
+			else {
+				if (!pp00) {
+					System.out.println("Aïe, isValid sur 0 et 0 renvoie false au lieu de true");
+				}
+				else {
+					System.out.println("Ok, isValid(int col, int lig) semble correcte");
+				}
+			}
+		}
 	}
 }

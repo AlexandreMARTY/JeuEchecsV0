@@ -136,11 +136,24 @@ public class Case {
 	 * @param occupeePar
 	 */
 	public Case (int col, int lig, Piece occupeePar, boolean atteignable) {
-		this.col = col;
-		this.lig = lig;
-		this.occupeePar = occupeePar;
-		this.atteignable = atteignable;
-		this.setCouleurCase();
+		if (isValid(col, lig)) {
+			this.col = col;
+			this.lig = lig;
+			this.occupeePar = occupeePar;
+			this.atteignable = atteignable;
+			this.setCouleurCase();
+		}
+	}
+	
+	/**
+	 * Cette case permet de tester si les coordonnées rentrées en argument sont des coordonnées d'échec (public que pour les tests)
+	 * @param col
+	 * @param lig
+	 * @return true si les coordonnées sont effectivement des coordonnées d'éches, false sinon
+	 */
+	//private
+	public static boolean isValid(int col, int lig) {
+		return (col>=0 && col<8 && lig>=0 && lig<8);
 	}
 
 	/**
@@ -151,10 +164,12 @@ public class Case {
 	 * @param occupeePar @tested
 	 */
 	public Case(int col, int lig) {
-		this.col = col;
-		this.lig = lig;
-		this.setAtteignable(false);
-		this.setCouleurCase();
+		if (isValid(col, lig)) {
+			this.col = col;
+			this.lig = lig;
+			this.setAtteignable(false);
+			this.setCouleurCase();
+		}
 	}
 	
 	/**

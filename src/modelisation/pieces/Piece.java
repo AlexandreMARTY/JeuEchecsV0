@@ -104,7 +104,7 @@ public abstract class Piece {
 	
 	/**
 	 * Cette fonction met à jour l'instance de rayon d'action de la pièce considérée en prenant en compte le statut
-	 * de son roi (echec ou pas) qu'entraineraît son déplacement 
+	 * de son roi (echec ou pas) qu'entraineraît son déplacement @tobetested !
 	 * @param plateauJeu
 	 * @param roi
 	 */
