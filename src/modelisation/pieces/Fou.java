@@ -17,17 +17,23 @@ public class Fou extends Piece {
 	// pas d'attriuts particuliers en plus
 	
 /////////////////////////////////////////Fonctions////////////////////////////////////////////
+	/**
+	 * cette fonction est censé renvoyer le premier rayon d'action du fou en 
+	 * tenant compte des emplacements des autres pièces sur le jeu
+	 * @tobetested
+	 */
 	protected Echiquier premierRayonAction(Echiquier plateauJeu) {
 		Echiquier premierrayonaction = new Echiquier();
 		List<List<Case>> diagonales = diagonalesVides(this.getEmplacement());
 		for (List<Case> diag : diagonales) {
 			boolean porteevalide = true;
 			for (Case c : diag) {
-				if (c.OccupeePar() == null && porteevalide == true) {
-					premierrayonaction.getCase(c.getCol(), c.getLig()).setAtteignable(true);
+				Case caseplateau = plateauJeu.getCase(c.getCol(), c.getLig());
+				if (caseplateau.OccupeePar() == null && porteevalide == true) {
+					premierrayonaction.getCase(caseplateau.getCol(), caseplateau.getLig()).setAtteignable(true);
 				}
-				else if (c.OccupeePar().getCouleurPiece() != this.getCouleurPiece() && porteevalide == true) {
-					premierrayonaction.getCase(c.getCol(), c.getLig()).setAtteignable(true);
+				else if (caseplateau.OccupeePar().getCouleurPiece() != this.getCouleurPiece() && porteevalide == true) {
+					premierrayonaction.getCase(caseplateau.getCol(), caseplateau.getLig()).setAtteignable(true);
 					porteevalide = false;
 				}
 				else {
@@ -37,7 +43,13 @@ public class Fou extends Piece {
 		}
 		return premierrayonaction;
 	}
-
+	
+	/**
+	 * Cette fonction annexe renvoie les diagonales vides du fou selon cette ordre : bas-gauche, haut-gauche, bas-droit, haut-droit
+	 * @param emplacement
+	 * @return
+	 * @tobetested
+	 */
 private List<List<Case>> diagonalesVides(Case emplacement) {
 		List<List<Case>> diagonalesvides = new ArrayList<List<Case>>();
 		List<Case> diagHautGauche = new ArrayList<Case>();
