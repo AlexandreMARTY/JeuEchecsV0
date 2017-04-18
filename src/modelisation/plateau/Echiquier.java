@@ -73,4 +73,19 @@ public class Echiquier {
 		}
 		return  CopyEchiquier;
 	}
+
+/////////////////////////////////////////toString////////////////////////////////////////////
+	/**
+	 * le toString de l'échiquier, très pretique pour les tests
+	 */
+	public String toStringPortee() {
+		String s = "Echiquier";
+		for (int lig = 7; lig>=0; lig--) {
+			s+=System.lineSeparator();
+			for (int col = 0; col<8; col++) {
+				s+=this.getCase(col, lig)+" : "+this.getCase(col, lig).isAtteignable()+"| ";
+			}
+		}
+		return s;
+	}
 }

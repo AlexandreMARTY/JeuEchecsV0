@@ -111,5 +111,10 @@ public class CaseTest {
 				}
 			}
 		}
+		
+		//Test de toString()
+		System.out.println("Vous devriez voir écrit A1 : "+A1);
+		System.out.println("Vous devriez voir écrit H8 : "+H8);
+		System.out.println("Vous devriez voir écrit C8 : "+C8);
 	}
 }

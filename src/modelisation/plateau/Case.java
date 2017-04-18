@@ -136,13 +136,11 @@ public class Case {
 	 * @param occupeePar
 	 */
 	public Case (int col, int lig, Piece occupeePar, boolean atteignable) {
-		if (isValid(col, lig)) {
 			this.col = col;
 			this.lig = lig;
 			this.occupeePar = occupeePar;
 			this.atteignable = atteignable;
 			this.setCouleurCase();
-		}
 	}
 	
 	/**
@@ -164,12 +162,10 @@ public class Case {
 	 * @param occupeePar @tested
 	 */
 	public Case(int col, int lig) {
-		if (isValid(col, lig)) {
 			this.col = col;
 			this.lig = lig;
 			this.setAtteignable(false);
 			this.setCouleurCase();
-		}
 	}
 	
 	/**
@@ -179,4 +175,15 @@ public class Case {
 	public Case() {
 		this(1,1);
 	}
+
+/////////////////////////////////////////ToString////////////////////////////////////////////
+	/**
+	 * Le toString renvoie le nom de la case selon le formalisme d'éhec habituel. Très utile pour les tests
+	 */
+	public String toString() {
+		char col = (char)('A'+(this.getCol()));
+		return col+""+(this.getLig()+1);
+	}
+	
+	
 }
