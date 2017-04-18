@@ -52,7 +52,7 @@ public class Fou extends Piece {
 	/**
 	 * Cette fonction annexe renvoie les diagonales vides du fou selon cette ordre : bas-gauche, haut-gauche, bas-droit, haut-droit
 	 * @param emplacement
-	 * @return
+	 * @return Une liste de List<Case> correspondant aux cases disponibles dans chacune des diagonales
 	 * @tested
 	 */
 	public
@@ -64,7 +64,7 @@ public class Fou extends Piece {
 		List<Case> diagBasGauche  = new ArrayList<Case>();
 		List<Case> diagBasDroit   = new ArrayList<Case>();
 		int col = emplacement.getCol(); int lig = emplacement.getLig();
-		for (int z = 1; z<7; z++) {
+		for (int z = 1; z<=7; z++) {
 			if (Case.isValid(col-z, lig+z)) {
 				diagHautGauche.add(new Case(col-z, lig+z));
 			}

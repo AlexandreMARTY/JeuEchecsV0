@@ -69,7 +69,7 @@ public class Dame extends Piece {
 	/**
 	 * Cette fonction annexe renvoie les diagonales vides du fou selon cette ordre : bas-gauche, haut-gauche, bas-droit, haut-droit
 	 * @param emplacement
-	 * @return
+	 * @return Une liste de List<Case> correspondant aux cases disponibles dans chacune des diagonales
 	 * @tested
 	 */
 	public
@@ -81,7 +81,7 @@ public class Dame extends Piece {
 		List<Case> diagBasGauche  = new ArrayList<Case>();
 		List<Case> diagBasDroit   = new ArrayList<Case>();
 		int col = emplacement.getCol(); int lig = emplacement.getLig();
-		for (int z = 1; z<7; z++) {
+		for (int z = 1; z<=7; z++) {
 			if (Case.isValid(col-z, lig+z)) {
 				diagHautGauche.add(new Case(col-z, lig+z));
 			}
@@ -105,36 +105,36 @@ public class Dame extends Piece {
 	/**
 	 * Cette fonction annexe renvoie les rangées vides de la dame selon cette ordre : gauche, haut, bas, droit
 	 * @param emplacement
-	 * @return
+	 * @return Une liste de List<Case> correspondant aux cases disponibles dans chacune des rangées
 	 * @tested
 	 */
 	public
 //private 
 	List<List<Case>> rangeesVides(Case emplacement) {
 		List<List<Case>> rangeesvides = new ArrayList<List<Case>>();
-		List<Case> rangHautGauche = new ArrayList<Case>();
-		List<Case> rangHautDroit  = new ArrayList<Case>();
-		List<Case> rangBasGauche  = new ArrayList<Case>();
-		List<Case> rangBasDroit   = new ArrayList<Case>();
+		List<Case> rangGauche = new ArrayList<Case>();
+		List<Case> rangHaut  = new ArrayList<Case>();
+		List<Case> rangBas = new ArrayList<Case>();
+		List<Case> rangDroit   = new ArrayList<Case>();
 		int col = emplacement.getCol(); int lig = emplacement.getLig();
-		for (int z = 1; z<7; z++) {
-			if (Case.isValid(col-z, lig+z)) {
-				rangHautGauche.add(new Case(col-z, lig+z));
+		for (int z = 1; z<=7; z++) {
+			if (Case.isValid(col-z, lig)) {
+				rangGauche.add(new Case(col-z, lig));
 			}
-			if (Case.isValid(col+z, lig+z)) {
-			rangHautDroit.add(new Case(col+z, lig+z));
+			if (Case.isValid(col, lig+z)) {
+			rangHaut.add(new Case(col, lig+z));
 			}
-			if (Case.isValid(col-z, lig-z)) {
-			rangBasGauche.add(new Case(col-z, lig-z));
+			if (Case.isValid(col, lig-z)) {
+			rangBas.add(new Case(col, lig-z));
 			}
-			if (Case.isValid(col+z, lig-z)) {
-			rangBasDroit.add(new Case(col+z, lig-z));
+			if (Case.isValid(col+z, lig)) {
+			rangDroit.add(new Case(col+z, lig));
 			}
 		}
-		rangeesvides.add(rangBasGauche);
-		rangeesvides.add(rangHautGauche);
-		rangeesvides.add(rangBasDroit);
-		rangeesvides.add(rangHautDroit);
+		rangeesvides.add(rangGauche);
+		rangeesvides.add(rangHaut);
+		rangeesvides.add(rangBas);
+		rangeesvides.add(rangDroit);
 		return rangeesvides;
 	}
 
