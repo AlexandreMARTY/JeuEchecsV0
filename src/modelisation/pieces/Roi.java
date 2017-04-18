@@ -78,7 +78,7 @@ public class Roi extends Piece {
 	 */
 	public boolean PeutPetitRoquer(Echiquier plateauJeu, Tour tour) {
 		boolean result = true; //indique le résultat de l'analyse
-		if (!aBouge) {
+		if (!this.aBouge()) {
 			if (plateauJeu.getCase(5, this.getEmplacement().getLig()).OccupeePar() == null 
 					&& plateauJeu.getCase(6, this.getEmplacement().getLig()).OccupeePar() == null) {//trajet vide
 				if (plateauJeu.getCase(7, this.getEmplacement().getLig()).OccupeePar().equals(tour) && !tour.aBouge()) {//Tour présente et n'a pas bougé
@@ -120,7 +120,7 @@ public class Roi extends Piece {
 	 */
 	public boolean PeutGrandRoquer(Echiquier plateauJeu, Tour tour) {
 		boolean result = true; //indique le résultat de l'analyse
-		if (!aBouge) {
+		if (!this.aBouge()) {
 			if (plateauJeu.getCase(3, this.getEmplacement().getLig()).OccupeePar() == null 
 					&& plateauJeu.getCase(2, this.getEmplacement().getLig()).OccupeePar() == null 
 						&& plateauJeu.getCase(1, this.getEmplacement().getLig()).OccupeePar() == null) {//trajet vide
@@ -146,6 +146,14 @@ public class Roi extends Piece {
 	
 	public void setPeutGrandRoquer(boolean b) {
 		peutPetitRoquer = b;
+	}
+	
+	public boolean aBouge() {
+		return aBouge;
+	}
+
+	public void setaBouge(boolean aBouge) {
+		this.aBouge = aBouge;
 	}
 
 	/**
