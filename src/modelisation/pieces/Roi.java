@@ -22,10 +22,10 @@ public class Roi extends Piece {
 	Echiquier premierRayonAction(Echiquier plateauJeu) {
 		Echiquier premierrayonaction = new Echiquier();
 		if (peutPetitRoquer) {
-			premierrayonaction.getCase(6, this.getEmplacement().getLig());
+			premierrayonaction.getCase(6, this.getEmplacement().getLig()).setAtteignable(true);
 		}
 		if (peutGrandRoquer) {
-			premierrayonaction.getCase(2, this.getEmplacement().getLig());
+			premierrayonaction.getCase(2, this.getEmplacement().getLig()).setAtteignable(true);
 		}
 		Case c = this.getEmplacement();
 		//on teste les 8 cases possibles
@@ -59,11 +59,17 @@ public class Roi extends Piece {
 	/**
 	 * getter du boolen indiquant que le roi peut faire le petit roque
 	 * @return
+	 * @tested
 	 */
 	public boolean PeutPetitRoquer() {
 		return peutPetitRoquer;
 	}
 	
+	/**
+	 * setter du boolen indiquant que le roi peut faire le petit roque
+	 * @tested
+	 * @return
+	 */
 	public void setPeutPetitRoquer(boolean b) {
 		peutPetitRoquer = b;
 	}
@@ -74,7 +80,7 @@ public class Roi extends Piece {
 	 * @param plateauJeu
 	 * @param tour
 	 * @return
-	 * @tobetested
+	 * @tested
 	 */
 	public boolean PeutPetitRoquer(Echiquier plateauJeu, Tour tour) {
 		boolean result = true; //indique le résultat de l'analyse
@@ -104,6 +110,7 @@ public class Roi extends Piece {
 
 	/**
 	 * getter du boolen indiquant que le roi peut faire le grand roque
+	 * @tested
 	 * @return
 	 */
 	public boolean PeutGrandRoquer() {
@@ -116,7 +123,7 @@ public class Roi extends Piece {
 	 * @param plateauJeu
 	 * @param tour
 	 * @return
-	 * @tobetested
+	 * @tested
 	 */
 	public boolean PeutGrandRoquer(Echiquier plateauJeu, Tour tour) {
 		boolean result = true; //indique le résultat de l'analyse
@@ -144,14 +151,29 @@ public class Roi extends Piece {
 		return false;
 		}
 	
+	/**
+	 * initialise le boolean du grand roque
+	 * @param b
+	 * @tested
+	 */
 	public void setPeutGrandRoquer(boolean b) {
-		peutPetitRoquer = b;
+		peutGrandRoquer = b;
 	}
 	
+	/**
+	 * renvoie le boolean pour savoir si le roi a bougé ou non 
+	 * @return
+	 * @tested
+	 */
 	public boolean aBouge() {
 		return aBouge;
 	}
 
+	/**
+	 * Sette du boolean aBouge
+	 * @param aBouge
+	 * @tested
+	 */
 	public void setaBouge(boolean aBouge) {
 		this.aBouge = aBouge;
 	}
@@ -178,6 +200,13 @@ public class Roi extends Piece {
 	}
 
 /////////////////////////////////////////Constructeur////////////////////////////////////////////
+	/**
+	 * Constructeur du Roi
+	 * @tested
+	 * @param nomPiece
+	 * @param couleurPiece
+	 * @param emplacement
+	 */
 	public Roi(String nomPiece, Couleur couleurPiece, Case emplacement) {
 		super("Roi", couleurPiece, emplacement);
 		this.peutPetitRoquer = false;
