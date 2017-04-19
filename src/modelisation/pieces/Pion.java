@@ -18,6 +18,7 @@ public class Pion extends Piece {
 	 * un pion ne peut pas reculer, il y a donc une différence de déplacement entre les pions noirs et blancs
 	 * Les pions ne mangent pas de la même manière qu'ils avancent, il faut donc distinguer un certain nmbre de points
 	 * Cette méthode renvoie l'échiquier du premier rayon d'action du pion
+	 * @tested
 	 */
 	//protected
 	public Echiquier premierRayonAction(Echiquier plateauJeu) {
@@ -112,6 +113,7 @@ public class Pion extends Piece {
 	 * @param plateauJeu
 	 * @param aPrendre
 	 * @return
+	 * @tested
 	 */
 	public
 	//private
@@ -158,6 +160,7 @@ public class Pion extends Piece {
 	 * @param plateauJeu
 	 * @param aPrendre
 	 * @return
+	 * @tested
 	 */
 	public
 	//private
