@@ -74,7 +74,7 @@ boolean CaseAPortee(int col, int lig, Echiquier plateauJeu) {
 }
 
 /////////////////////////////////////////Constructeur////////////////////////////////////////////
-	public Cavalier(String nomPiece, Couleur couleurPiece, Case emplacement) {
+	public Cavalier(Couleur couleurPiece, Case emplacement) {
 		super("Cavalier", couleurPiece, emplacement);
 	}
 }

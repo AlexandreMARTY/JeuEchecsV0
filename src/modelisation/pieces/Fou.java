@@ -86,7 +86,7 @@ public class Fou extends Piece {
 	}
 
 	/////////////////////////////////////////Constructeur////////////////////////////////////////////
-	public Fou(String nomPiece, Couleur couleurPiece, Case emplacement) {
+	public Fou(Couleur couleurPiece, Case emplacement) {
 		super("Fou", couleurPiece, emplacement);
 	}
 }

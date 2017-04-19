@@ -9,16 +9,16 @@ public class CavalierTest {
 	
 	public static void main(String[] args) {
 		Echiquier plateauJeu = new Echiquier();
-		Cavalier CavalierA1 = new Cavalier("CavalierA1", Couleur.BLANC, plateauJeu.getCase(0, 0));
+		Cavalier CavalierA1 = new Cavalier(Couleur.BLANC, plateauJeu.getCase(0, 0));
 		plateauJeu.getCase(0, 0).setOccupeePar(CavalierA1);
-		Cavalier CavalierD4 = new Cavalier("CavalierD4", Couleur.NOIR, plateauJeu.getCase(3, 3));
+		Cavalier CavalierD4 = new Cavalier(Couleur.NOIR, plateauJeu.getCase(3, 3));
 		plateauJeu.getCase(3,3).setOccupeePar(CavalierD4);
-		Cavalier CavalierF1 = new Cavalier("CavalierG1", Couleur.NOIR, plateauJeu.getCase(5, 0));
+		Cavalier CavalierF1 = new Cavalier(Couleur.NOIR, plateauJeu.getCase(5, 0));
 		plateauJeu.getCase(5,0).setOccupeePar(CavalierF1);
 		
-		Fou FouH2 = new Fou("FouH2", Couleur.NOIR, plateauJeu.getCase(7, 1));
+		Fou FouH2 = new Fou(Couleur.NOIR, plateauJeu.getCase(7, 1));
 		plateauJeu.getCase(7,1).setOccupeePar(FouH2);
-		Fou FouG3 = new Fou("FouG3", Couleur.BLANC, plateauJeu.getCase(6, 2));
+		Fou FouG3 = new Fou(Couleur.BLANC, plateauJeu.getCase(6, 2));
 		plateauJeu.getCase(6,2).setOccupeePar(FouG3);
 		
 		//test de premierrayonaction

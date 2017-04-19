@@ -139,7 +139,7 @@ public class Dame extends Piece {
 	}
 
 /////////////////////////////////////////Constructeur////////////////////////////////////////////
-	public Dame(String nomPiece, Couleur couleurPiece, Case emplacement) {
+	public Dame(Couleur couleurPiece, Case emplacement) {
 		super("Dame", couleurPiece, emplacement);
 	}
 }

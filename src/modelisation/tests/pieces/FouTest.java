@@ -12,11 +12,11 @@ public class FouTest {
 	
 	public static void main(String[] args) {
 		Echiquier plateauJeu = new Echiquier();
-		Fou FouA1 = new Fou("FouA1", Couleur.BLANC, plateauJeu.getCase(0, 0));
+		Fou FouA1 = new Fou(Couleur.BLANC, plateauJeu.getCase(0, 0));
 		plateauJeu.getCase(0, 0).setOccupeePar(FouA1);
-		Fou FouD4 = new Fou("FouD4", Couleur.BLANC, plateauJeu.getCase(3, 3));
+		Fou FouD4 = new Fou(Couleur.BLANC, plateauJeu.getCase(3, 3));
 		plateauJeu.getCase(3,3).setOccupeePar(FouD4);
-		Cavalier CG1 = new Cavalier("CavalierG1", Couleur.NOIR, plateauJeu.getCase(6, 0));
+		Cavalier CG1 = new Cavalier(Couleur.NOIR, plateauJeu.getCase(6, 0));
 		plateauJeu.getCase(6,0).setOccupeePar(CG1);
 		
 		//Test de diagonales vides 

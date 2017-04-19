@@ -91,7 +91,7 @@ public class Tour extends Piece{
 	}
 
 /////////////////////////////////////////Constructeur////////////////////////////////////////////
-	public Tour(String nomPiece, Couleur couleurPiece, Case emplacement) {
+	public Tour(Couleur couleurPiece, Case emplacement) {
 		super("Tour", couleurPiece, emplacement);
 		this.aBouge = false;
 	}

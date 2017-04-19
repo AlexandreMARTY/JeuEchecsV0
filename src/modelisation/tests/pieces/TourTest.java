@@ -11,11 +11,11 @@ import modelisation.plateau.Echiquier;
 public class TourTest {
 	public static void main(String[] args) {
 		Echiquier plateauJeu = new Echiquier();
-		Tour TourA1 = new Tour("TourA1", Couleur.BLANC, plateauJeu.getCase(0, 0));
+		Tour TourA1 = new Tour(Couleur.BLANC, plateauJeu.getCase(0, 0));
 		plateauJeu.getCase(0, 0).setOccupeePar(TourA1);
-		Tour TourD4 = new Tour("TourD4", Couleur.BLANC, plateauJeu.getCase(3, 3));
+		Tour TourD4 = new Tour(Couleur.BLANC, plateauJeu.getCase(3, 3));
 		plateauJeu.getCase(3,3).setOccupeePar(TourD4);
-		Cavalier CG1 = new Cavalier("CavalierG1", Couleur.NOIR, plateauJeu.getCase(6, 0));
+		Cavalier CG1 = new Cavalier(Couleur.NOIR, plateauJeu.getCase(6, 0));
 		plateauJeu.getCase(6,0).setOccupeePar(CG1);
 		
 		//Test de rangees vides 

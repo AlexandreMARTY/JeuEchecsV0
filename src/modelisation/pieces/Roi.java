@@ -57,24 +57,6 @@ public class Roi extends Piece {
 	}
 
 	/**
-	 * getter du boolen indiquant que le roi peut faire le petit roque
-	 * @return
-	 * @tested
-	 */
-	public boolean PeutPetitRoquer() {
-		return peutPetitRoquer;
-	}
-	
-	/**
-	 * setter du boolen indiquant que le roi peut faire le petit roque
-	 * @tested
-	 * @return
-	 */
-	public void setPeutPetitRoquer(boolean b) {
-		peutPetitRoquer = b;
-	}
-
-	/**
 	 * Cette fonction détermine si le roi peut faire le petit roque. 
 	 * Par la suite elle sera mise en private et incluse dans le setter
 	 * @param plateauJeu
@@ -106,16 +88,6 @@ public class Roi extends Piece {
 			}
 		return false;
 		}
-
-
-	/**
-	 * getter du boolen indiquant que le roi peut faire le grand roque
-	 * @tested
-	 * @return
-	 */
-	public boolean PeutGrandRoquer() {
-		return peutGrandRoquer;
-	}
 
 	/**
 	 * Cette fonction détermine si le roi peut faire le grand roque. 
@@ -150,6 +122,33 @@ public class Roi extends Piece {
 			}
 		return false;
 		}
+	
+	/**
+	 * getter du boolen indiquant que le roi peut faire le petit roque
+	 * @return
+	 * @tested
+	 */
+	public boolean PeutPetitRoquer() {
+		return peutPetitRoquer;
+	}
+	
+	/**
+	 * setter du boolen indiquant que le roi peut faire le petit roque
+	 * @tested
+	 * @return
+	 */
+	public void setPeutPetitRoquer(boolean b) {
+		peutPetitRoquer = b;
+	}
+	
+	/**
+	 * getter du boolen indiquant que le roi peut faire le grand roque
+	 * @tested
+	 * @return
+	 */
+	public boolean PeutGrandRoquer() {
+		return peutGrandRoquer;
+	}
 	
 	/**
 	 * initialise le boolean du grand roque
@@ -207,7 +206,7 @@ public class Roi extends Piece {
 	 * @param couleurPiece
 	 * @param emplacement
 	 */
-	public Roi(String nomPiece, Couleur couleurPiece, Case emplacement) {
+	public Roi(Couleur couleurPiece, Case emplacement) {
 		super("Roi", couleurPiece, emplacement);
 		this.peutPetitRoquer = false;
 		this.peutGrandRoquer = false;

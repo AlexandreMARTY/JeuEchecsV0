@@ -9,13 +9,13 @@ public class DameTest {
 	
 	public static void main(String[] args) {
 		Echiquier plateauJeu = new Echiquier();
-		Dame DameA1 = new Dame("DameA1", Couleur.BLANC, plateauJeu.getCase(0, 0));
+		Dame DameA1 = new Dame(Couleur.BLANC, plateauJeu.getCase(0, 0));
 		plateauJeu.getCase(0, 0).setOccupeePar(DameA1);
-		Dame DameD4 = new Dame("DameD4", Couleur.BLANC, plateauJeu.getCase(3, 3));
+		Dame DameD4 = new Dame(Couleur.BLANC, plateauJeu.getCase(3, 3));
 		plateauJeu.getCase(3,3).setOccupeePar(DameD4);
-		Cavalier CG1 = new Cavalier("CavalierG1", Couleur.NOIR, plateauJeu.getCase(6, 0));
+		Cavalier CG1 = new Cavalier(Couleur.NOIR, plateauJeu.getCase(6, 0));
 		plateauJeu.getCase(6,0).setOccupeePar(CG1);
-		Cavalier CF4 = new Cavalier("CavalierF4", Couleur.NOIR, plateauJeu.getCase(5, 3));
+		Cavalier CF4 = new Cavalier(Couleur.NOIR, plateauJeu.getCase(5, 3));
 		plateauJeu.getCase(5,3).setOccupeePar(CF4);
 		
 		//Test de premierRayonAction

@@ -14,8 +14,8 @@ public class PieceTest {
 		Case A3 = new Case(0,2);
 	
 		//création des pièces (fous pour l'exemple)
-		Fou Fou1 = new Fou("Fou1", Couleur.BLANC, A1);
-		Fou Fou2 = new Fou("Fou2", Couleur.BLANC, A2);
+		Fou Fou1 = new Fou(Couleur.BLANC, A1);
+		Fou Fou2 = new Fou(Couleur.BLANC, A2);
 	
 		//liaison des cases à leur pièces
 		A1.setOccupeePar(Fou1);
