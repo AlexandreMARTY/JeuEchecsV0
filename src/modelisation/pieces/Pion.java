@@ -201,6 +201,22 @@ public class Pion extends Piece {
 	public void setaJusteBouge(boolean aBouge) {
 		this.aJusteBouge = aBouge;
 	}
+	
+	/**
+	 * Cette fonction contrôle la promoton du pion. Lorsque le pion arrive sur la 8ème rangée (ou première)
+	 * alors il est retiré du jeu puis une nouvelle pièce est crée, choisie par le joueur, sauf le roi
+	 * @param piece
+	 */
+	public void promotion(Piece piece) {
+		if (this.getCouleurPiece() == Couleur.BLANC) {
+			if (this.getEmplacement().getLig() == 7) {
+				Case emplacement = this.getEmplacement();
+				this.erase();
+				piece.setEmplacement(emplacement);
+				emplacement.setOccupeePar(piece);	
+			}
+		}
+	}
 
 
 
