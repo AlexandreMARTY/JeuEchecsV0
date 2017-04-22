@@ -14,7 +14,7 @@ public class CavalierTest {
 		Cavalier CavalierD4 = new Cavalier(Couleur.NOIR, plateauJeu.getCase(3, 3));
 		plateauJeu.getCase(3,3).setOccupeePar(CavalierD4);
 		Cavalier CavalierF1 = new Cavalier(Couleur.NOIR, plateauJeu.getCase(5, 0));
-		plateauJeu.getCase(5,0).setOccupeePar(CavalierF1);
+		//plateauJeu.getCase(5,0).setOccupeePar(CavalierF1);
 		
 		Fou FouH2 = new Fou(Couleur.NOIR, plateauJeu.getCase(7, 1));
 		plateauJeu.getCase(7,1).setOccupeePar(FouH2);

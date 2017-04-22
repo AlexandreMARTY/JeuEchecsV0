@@ -163,5 +163,6 @@ public abstract class Piece {
 		this.nomPiece = nomPiece;
 		this.couleurPiece = couleurPiece;
 		this.emplacement = emplacement;
+		this.emplacement.setOccupeePar(this);
 	}
 }
